@@ -1,21 +1,24 @@
 def volcanoSort(s):
+    length = len(s)
     # If length < 3, then you cant have a valid volcano!
-    if len(s) < 3:
+    if length < 3:
         return "Not a valid volcano!"
 
     # Order array into "Volcano Order Patent Pending"
-    volcanoOrder = [float('inf')] * len(s)
+    volcanoOrder = [float('inf')] * length
     maximum = max(s)
-    lindex = rindex = mindex = len(s)//2
+    lindex = rindex = mindex = length//2
     volcanoOrder[mindex] = maximum
+    s.pop(s.index(maximum))
     seen = [maximum]
     direction = 1
     
-    for _ in range(len(s)-1):
+    for _ in range(length-1):
         newMax = float('-inf')
-        for num in s:
-            if num not in seen:
-                newMax = max(newMax, num)
+        for i, num in enumerate(s):
+            if num > newMax:
+                newMax = num
+                index = i
         if direction == 1:
             volcanoOrder[lindex-1] = newMax
             lindex -= 1
@@ -24,14 +27,20 @@ def volcanoSort(s):
             volcanoOrder[rindex+1] = newMax
             rindex += 1
             direction = 1
-        maximum = newMax
+        s.pop(index)
         seen.append(newMax)
     
     # Erupt the Volcano Order to create the sorted array
     volcanoSorted = []
-    for _ in range(len(s)):
-        volcanoSorted.append(volcanoOrder.pop(len(volcanoOrder)//2))
-    return volcanoSorted[::-1]
+    if length % 2 == 0:
+        for _ in range(length):
+            volcanoSorted.append(volcanoOrder.pop(len(volcanoOrder)//2))
+    else:
+        for _ in range(length//2):
+            volcanoSorted.append(volcanoOrder.pop(len(volcanoOrder)//2))
+            volcanoSorted.append(volcanoOrder.pop(len(volcanoOrder)//2 - 1))
+        volcanoSorted.append(volcanoOrder.pop())
 
-s = [3, 5, 4, 6, 7, 8, 1, 2, 0, -1]
+    return volcanoSorted[::-1]
+s = [3, 5, 4, 6, 7, 0, -1, -12, 7]
 print(volcanoSort(s))
