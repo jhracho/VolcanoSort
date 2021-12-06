@@ -1,4 +1,4 @@
-# :volcano: Volcano Sort
+# Volcano Sort
 The hottest sorting algorithm around!
 
 ### Disclaimer
@@ -19,6 +19,24 @@ Given the following input: [4,8,2,2,1,3,0], Volcano Sort will construct a volcan
 The volcano will erupt and place numbers in increasing order. 
 
 Output: [0,1,2,2,3,4,8]
+
+## Installation
+```bash
+pip install VolcanoSort
+```
+
+## Usage
+```python
+from VolcanoSort import volcano
+
+arr = [4, 5, 8, 1, 2, 3, 7, 6, 9]
+arr = volcano.sort(arr)
+print(arr)
+```
+```bash
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
 
 ### Future Development
 None!
