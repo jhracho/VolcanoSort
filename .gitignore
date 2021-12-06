@@ -1,2 +1,2 @@
 python-dist/dist/*
-python-dist/src/VolcanoSort.egg-info
+python-dist/src/VolcanoSort.egg-info/*
