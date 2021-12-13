@@ -2,7 +2,7 @@
 The hottest sorting algorithm around!
 
 ![version](https://img.shields.io/badge/version-1.0.4-blue)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/VolcanoSort?label=pypi%20Installs)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/VolcanoSort?label=pip%20installs)
 
 ### Disclaimer
 This algorithm runs in O(n<sup>2</sup>). Please don't use this.
